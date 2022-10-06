@@ -6,12 +6,13 @@ def find_name(line):
     # pattern = r'([A-Z][a-z]+ [A-Z][a-z]+)'
     # result = re.findall(pattern,line)
     
+    init = r"(?:[A-Z]*[.]?[ ]*)?"
     title = r"(?:(?:Mrs|Mr|Ms|Dr|Rev)[. ])?"
     first = r"[A-Z][a-z]+,?[ ]+"
     mid = r"(?:[A-Z][a-z]*[.]?[ ]*)?"
     last = r"[A-Z][a-z]+"
 
-    result = re.findall(title + first + mid + mid + last, line)
+    result = re.findall(init + init + init + title +  mid + mid + mid + mid + last, line)
 
     return result
 

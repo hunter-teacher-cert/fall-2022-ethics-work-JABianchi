@@ -9,11 +9,26 @@ public class Student{
   private double readScore;
   private int classRank;
   private String ethnicity;
-  private ArrayList<String> schoolList;
+  private ArrayList<Integer> schoolList;
+  private boolean isMatch = false;
   
   //constructor
   public Student(){
    this(-1,-1.0, -1.0, -1.0, -1,"Not Specified"); 
+  }
+
+  //copy constructor
+  public Student(Student st){
+    
+    //construct Student from other Student object's data
+    this(st.getIdNum(), st.getAttendance(), st.getMathScore(), st.getReadScore(), st.getClassRank(), st.getEthnicity());
+
+    //copy each School id in schoolList
+    this.schoolList = new ArrayList<Integer>();
+    for(Integer sch : st.getSchoolList()){
+      this.schoolList.add(sch);
+    }
+    
   }
 
   public Student(int id, double att, double math, double read, int rank, String eth){
@@ -25,7 +40,7 @@ public class Student{
     ethnicity = eth;
   }
 
-  public void assignSchoolList(ArrayList<String> sl){
+  public void assignSchoolList(ArrayList<Integer> sl){
     this.schoolList = sl;
   }
 
@@ -48,10 +63,21 @@ public class Student{
   public String getEthnicity(){
     return ethnicity;
   }
-  public ArrayList<String> getSchoolList(){
+  public ArrayList<Integer> getSchoolList(){
     return schoolList;
   }
+  public boolean isMatched(){
+    return isMatch;
+  }
 
+
+  //MUTATOR
+  public void match(){
+    isMatch = true;
+  }
+  public void unmatch(){
+    isMatch = false;
+  }
   
   public String toString(){
     return idNum + ":  \t" + attendance + "  \t" + mathScore + " \t" + readScore + "  \t" + classRank + "  \t" + ethnicity;
@@ -60,7 +86,7 @@ public class Student{
 
   public void printSchoolList(){
     System.out.print(idNum + ":");
-    for(String s: schoolList){
+    for(Integer s: schoolList){
       System.out.print(s);
     }
     System.out.println();

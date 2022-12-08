@@ -1,0 +1,7 @@
+schoolName,schoolId,attWeight,mathWeight,readWeight,ethWeight,rankWeight,prestige
+Elite HS,0,0.90,1.0,0.8,0.0,0.1,10
+Tryhard HS,1,1.00,0.8,0.8,0.0,1.0,8
+Average HS,2,0.80,0.8,0.8,0.0,0.5,5
+Struggle HS,3,1.00,1.0,1.0,0.0,0.5,1
+Backwards HS,4,0.5,0.5,0.5,1.0,0.5,6, //
+Racist HS,5,0.0,0.0,0.0,1.0,0.0,5
